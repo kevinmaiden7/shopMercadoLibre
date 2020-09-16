@@ -4,23 +4,22 @@ import { ApiAccessService } from '../services/api-access.service';
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
-  styleUrls: ['./home.component.css']
+  styleUrls: ['./home.component.css'],
 })
 export class HomeComponent implements OnInit {
 
-  productName: String = "";
   products: Array<any>;
 
   constructor(
     private apiAccess: ApiAccessService,
-  ) { }
+  ) { 
+  }
 
   ngOnInit() {
   }
 
   search(input){
     console.log(input);
-    this.productName = input;
     this.apiAccess.getList(input).subscribe(data => {
       this.products = data.results;
       console.log(this.products);

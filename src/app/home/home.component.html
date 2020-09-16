@@ -1,11 +1,22 @@
 <div class="row justify-content-center">
     <div>  
         <input type="string" name="input" #input/>
-        <button (click)="search(input.value)" class="btn btn-primary">Search</button>
+        <button (click)="search(input.value)" class="btn btn-primary">Search</button><hr>
     </div>
 </div>
-<div class="row justify-content-center">
-    <div *ngIf="input.value">
-        <p>Div</p>
-    </div>
+
+<div class="row justify-content-center" *ngIf="input.value">
+    <ngb-carousel>
+        <ng-template ngbSlide>
+            <div class="related_product_item" *ngFor="let product of products">
+                <div class="related_product_pic">
+                    <img [src]="product.thumbnail">
+                </div>
+                <div class="related_product_content">
+                    <h5>{{product.title}}</h5>
+                    <h6>{{product.price}}</h6><hr>
+                </div>
+            </div>
+        </ng-template>
+    </ngb-carousel>
 </div>
