@@ -13,9 +13,9 @@ export class ApiAccessService {
     private http: HttpClient
   ) { }
 
-  getList(product: string): Observable<any> {
-    console.log(this.API + product);
-    return this.http.get(this.API + product);
+  getList(product: string, offset: number): Observable<any> {
+    console.log(this.API + product + '&offset=' + offset);
+    return this.http.get(this.API + product + '&offset=' + offset);
   }
 
 }

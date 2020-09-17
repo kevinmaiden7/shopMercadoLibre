@@ -9,27 +9,27 @@ import { ApiAccessService } from '../services/api-access.service';
 export class HomeComponent implements OnInit {
 
   products: Array<any>;
+  productsPerPage: number;
+  totalProducts: number;
+  page;
 
   constructor(
     private apiAccess: ApiAccessService,
   ) { 
+      this.productsPerPage = 50;
+      this.totalProducts = 0;
+      this.page = 1;
   }
 
   ngOnInit() {
   }
 
   search(input){
-    console.log(input);
-    this.apiAccess.getList(input).subscribe(data => {
+    this.apiAccess.getList(input, (this.page - 1) * this.productsPerPage).subscribe(data => {
+      this.totalProducts = data.paging.total;
       this.products = data.results;
       console.log(this.products);
-    }); 
+    });
   }
-  /*
-  console.log(this.products[0].id);
-  console.log(this.products[0].title);
-  console.log(this.products[0].price);
-  console.log(this.products[0].thumbnail);
-  */
  
 }

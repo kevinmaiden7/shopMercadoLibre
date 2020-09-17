@@ -5,6 +5,12 @@
     </div>
 </div>
 
+<div class="row justify-content-center">
+    <ngb-pagination [collectionSize]="totalProducts" [pageSize]="productsPerPage" [(page)]="page"
+    [maxSize]="5" [rotate]="true" [ellipses]="false" [boundaryLinks]="false"
+    (pageChange)="search(input.value)"></ngb-pagination>
+</div>
+
 <div class="row justify-content-center" *ngIf="input.value">
     <ngb-carousel>
         <ng-template ngbSlide>
