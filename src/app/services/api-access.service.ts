@@ -7,14 +7,20 @@ import { Observable } from 'rxjs';
 })
 export class ApiAccessService {
 
-  public API = 'https://api.mercadolibre.com/sites/MCO/search?q=';
+  public API = 'https://api.mercadolibre.com';
+  public API_LIST = this.API + '/sites/MCO/search?q=';
+  public API_PRODUCT = this.API + 'items/';
 
   constructor(
     private http: HttpClient
   ) { }
 
   getList(product: string, offset: number): Observable<any> {
-    return this.http.get(this.API + product + '&offset=' + offset);
+    return this.http.get(this.API_LIST + product + '&offset=' + offset);
+  }
+
+  getProduct(id: string){
+    return this.http.get(this.API_PRODUCT + id);
   }
 
 }
