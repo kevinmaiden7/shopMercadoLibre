@@ -28,7 +28,7 @@ export class HomeComponent implements OnInit {
     this.apiAccess.getList(input, (this.page - 1) * this.productsPerPage).subscribe(data => {
       this.totalProducts = data.paging.total;
       this.products = data.results;
-      console.log(this.products);
+      //console.log(this.products);
     });
   }
  
