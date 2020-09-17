@@ -1,1 +1,16 @@
-<p>product-details works!</p>
+<div class="row justify-content-center" *ngIf="product">
+    <div class="related_product_item">
+        <div class="related_product_content">
+            <h5>{{product.title}}</h5>
+        </div>
+        <div class="related_product_pic">
+            <img [src]="productImage">
+        </div><hr>
+        <div class="related_product_content">
+            <h6>Price: {{product.price}}</h6>
+            <h6>Discount: {{discount}} %</h6>
+            <h6>Seller: {{sellerNickname}}</h6>
+            <a [href]="product.permalink">Go to MercadoLibre</a>
+        </div>
+    </div>
+</div>

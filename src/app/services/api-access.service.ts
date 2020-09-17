@@ -9,7 +9,8 @@ export class ApiAccessService {
 
   public API = 'https://api.mercadolibre.com';
   public API_LIST = this.API + '/sites/MCO/search?q=';
-  public API_PRODUCT = this.API + 'items/';
+  public API_PRODUCT = this.API + '/items/';
+  public API_SELLER = this.API + '/users/';
 
   constructor(
     private http: HttpClient
@@ -23,4 +24,7 @@ export class ApiAccessService {
     return this.http.get(this.API_PRODUCT + id);
   }
 
+  getSeller(id: string){
+    return this.http.get(this.API_SELLER + id);
+  }
 }
