@@ -41,7 +41,7 @@ export class ProductDetailsComponent implements OnInit, OnDestroy {
             }
 
             if (product.original_price){
-              this.discount = 100 - (product.price * 100 / product.original_price);
+              this.discount = Number((100 - (product.price * 100 / product.original_price)).toFixed());
             }else{
               this.discount = 0;
             }
