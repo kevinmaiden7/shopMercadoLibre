@@ -7,7 +7,7 @@
             <img [src]="productImage">
         </div><hr>
         <div class="related_product_content">
-            <h6>Price: {{product.price}}</h6>
+            <h6>Price: {{product.price | currency}}</h6>
             <h6>Discount: {{discount}} %</h6>
             <h6>Seller: {{sellerNickname}}</h6>
             <a [href]="product.permalink">Go to MercadoLibre</a>
